@@ -1,0 +1,59 @@
+version: "3"
+services:
+  front:
+    stdin_open: true
+    tty: true
+    build:
+      context: front
+      dockerfile: Dockerfile
+    container_name: "front"
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - db
+    networks:
+      - local
+
+  service:
+    stdin_open: true
+    tty: true
+    build:
+      context: service
+      dockerfile: Dockerfile
+    container_name: "service"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - local
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: "surittec-pgadmin"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    ports:
+      - "9090:80"
+    depends_on:
+      - db
+    networks:
+      - local
+
+  db:
+    image: postgres
+    container_name: "surittec-db"
+    ports:
+      - "5454:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=db
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge

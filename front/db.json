@@ -1,0 +1,25 @@
+{
+  "client": [
+    {
+      "id": 1,
+      "name": "Millys Fabrielle Araujo Carvalhaes",
+      "CPF": "00518341119",
+      "address": {
+        "id": 1,
+        "street": "Rua Potiguaras",
+        "neighborhood": "Vila Brasília",
+        "city": "Aparecida de Goiânia",
+        "state": "GO",
+        "postalCode": "74905640"
+      },
+      "phones": [
+        { "id": 1, "type": "residencial", "number": "6230977878" },
+        { "id": 2, "type": "celular", "number": "62996160016" }
+      ],
+      "emails": [
+        { "id": "1", "email": "millysfabrielle@gmail.com" },
+        { "id": "1", "email": "millysfabrielle@gmail.com" }
+      ]
+    }
+  ]
+}
