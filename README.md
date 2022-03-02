@@ -1,30 +1,36 @@
 # Deploy com Docker
->docker-compose up
+
+> docker-compose up
 
 ## Serviços
 
 ### Postgres:
+
 - Database: db
 - Porta: 5454
 - Username: postgres
 - Password: root
 
 ### PGAdmin:
+
 - Porta: 9090
 - Username: root@email.com
 - Password: root
 
-### Front: 
+### Front:
+
 - Porta: 3000
 - admin: 123456
 - comum: 123456
 
 ### Service:
+
 - Porta: 8080
 
 #### Objetos Json
 
 ##### Request Autenticação:
+
 ```
 {
     "username": "admin",
@@ -33,6 +39,7 @@
 ```
 
 ##### Response Autenticação:
+
 ```
 {
     "jwtToken": "ey...",
@@ -43,7 +50,8 @@
 }
 ```
 
-##### Cliente: 
+##### Cliente:
+
 ```
 {
     "id": "",
@@ -74,14 +82,23 @@
 }
 ```
 
-
 #### Objetos Json
+
 - POST localhost:8080/auth
 - GET localhost:8080/cliente
 - POST localhost:8080/cliente
 - PUT localhost:8080/cliente
 - DELETE localhost:8080/cliente/{id}
 
+## Implementações futuras
 
+### Segurança
 
+- Adicionar token csrf.
+- Teste de rotas e2e.
 
+### Melhorias
+
+- Criar um middleware centralizado para tratamento de erros no Front-End.
+- Refatorar o envio de mensagens no Front-End.
+- Revisar a documentação do React Router Dom v6 para melhorar o envio de mensagens.
